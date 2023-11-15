@@ -1,0 +1,54 @@
+\documentclass{article}
+\linespread{1.5}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{changepage}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+\title{Proiect de Cercetare}
+\author{Paul Cristian}
+\date{November 2023}
+
+\begin{document}
+\newpage
+\maketitle
+
+\section{Introduction}
+
+\newpage
+\section {Descriere}
+    Deoarece conceptul de comunitate este unul destul de greu de definit, putând lua multiple interpretări valide, vom încerca să plecăm de la un exemplu
+    intuitiv și practic, urmând ca apoi să oferim și o definiție matematică riguroasă.
+    Din punct de vedere lingvistic, prin comunitate înțelegem un grup de oameni cu interese, aspirații, dorințe, trăsături comune, asemănătoare. Mergând un pas 
+    mai departe, putem face o analogie între conceptul de prietenie, asociere, parteneriat din cadrul unei comunități și conceptul de muchie bidirecțională între
+    două noduri din teoria grafurilor. Următoarea problemă care se ridică, privind la ceea ce se întămplă în realitate. În viața de zi cu zi, fiecare face parte din 
+    mai multe anturaje, grupuri, comunități - în familia restrânsă, în familia lărgită, la școală sau la locul de muncă, cu prietenii, la practicarea unui hobby comun etc.
+    Cu toate acestea, daca ar fi sa ne gandim cu care comunitate ne identificăm cel mai mult, probabil ar fi cea cu care avem cea mai strânsă legătură.  Matematic, 
+    această legătură poate fi reprezentată de un număr cât mai ridicat de muchii ale unui nod cu alte noduri din comunitatea de care aparține, și un număr cât mai scăzut de muchii cu noduri din alte comunități. Cazul ideal este când individul nu are legături ex-comunitare, și este strâns legat de comunitatea lui. Adică, avem de a face
+    cu o pădure de grafuri complete.\\
+    DEFINITIE 1. O comunitate este un graf(sau subgraf) complet (fig1)\\
+        G = (V, E), $V = \bigcup_{i=1}^{n}i$, $E = \bigcup_{i=1}^{n}\bigcup_{j=1,\\ i\neq j}^{n} (i,j)$\\DEFINITIE 2. Un graf poate fi delimitat în comunități dacă este o pădure de grafuri complete.(fig2)\\
+\begin{figure}[h]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{graph (1).png}
+  \captionof{figure}{Pădure de grafuri complete}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.6\linewidth]{graph (2).png}
+  \captionof{figure}{Graf complet(comunitate)}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+\newpage
+\section{Modularitate}
+Evident, definițiile prezentate anterior sunt foarte rigide și aproape imposibil de implementat în practică. Însă modelul matematic în caz ideal și analogia cu lumea reală constituie o bază solidă pentru a ataca
+problema modularității și identificarea unor formule de calcul cât mai relevante. La fel, vom face legături practice și intuitive care să poată conduce ulterior la un model matematic riguros. 
+
+\end{document}
