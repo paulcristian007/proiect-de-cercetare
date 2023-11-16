@@ -49,6 +49,29 @@
 \newpage
 \section{Modularitate}
 Evident, definițiile prezentate anterior sunt foarte rigide și aproape imposibil de implementat în practică. Însă modelul matematic în caz ideal și analogia cu lumea reală constituie o bază solidă pentru a ataca
-problema modularității și identificarea unor formule de calcul cât mai relevante. La fel, vom face legături practice și intuitive care să poată conduce ulterior la un model matematic riguros. 
-
+problema modularității și identificarea unor formule de calcul cât mai relevante. La fel, vom face legături practice și intuitive care să poată conduce ulterior la un model matematic riguros. Având în vedere că situația ideală, de maximă legătură în cadrul unei comunități, este irelevantă, putem căuta un coeficient matematic care să ne indice cât de aproape, sau de departe este comunitatea noastră de acest obiectiv propus. Pentru aceasta,
+putem calcula ușor un procent de "umplere" a grafului, care se exprimă ușor astfel
+$phi=\frac{|E|}{|V| * (|V| + 1) / 2}$ Evident, pentru un graf complet, $phi=1$, iar pentru un graf fără muchii, $phi=0$. Având în minte acest lucru, putem extinde problema și pentru cazul când vrem să măsurăm împărțirea unui graf în 2 sau mai multe comunități.
+Considerăm următiarea partiție a grafului $G=(V,E)$: \\
+    $G=\bigcup_{i=1}^{k}G_i=\bigcup_{i=1}^{k}(V_i,E_i)$\\
+    Să explicăm aceste notații:\\
+    $G_i$ = graful asociat comunității\\
+    $V_i$ = vârfurile din graful $G_i$, adică membrii comunității i\\
+    $E_i$ = muchiile între  două vârfuri din $G_i$ Atenție - În $E_i$ nu sunt incluse muchiile între noduri din comunitatea i și noduri
+    din alte comunități. Acest aspect este foarte important și va fi tratat ulterior.\\
+Observații:\\
+    $\bigcup_{i=1}^{k}V_i=V$, adică fiecare nod trebuie să aparțină unei comunități.\\
+    $\cap_{i=1}^{k}V_i=\emptyset$, adică un nod nu poate aparține de mai multe comunități.\\
+    Combinând cele două observații de mai sus, ajungem la concluzia că orice nod aparține exact unei comunități.\\
+    $\cap_{i=1}^{k}E_i=\emptyset$\\
+    $\bigcup_{i=1}^{k}E_i\subseteq E$\\
+    $E-\bigcup_{i=1}^{k}E_i=\{(x, y) \mid (x, y) \in E, x \in V_i_1, y \in V_i_2, i_1 \neq i_2\}$\\
+    O idee trivială pentru a calcula modularitatea întregului graf este de a calcula valoarea lui$phi$ pentru fiecare comunitate în parte,
+și a face media aritmetică a tuturor acestor valori. Această abordare are însă un mare dezavantaj, și anume că nu ia în niciun fel în calcul
+muchiile extra-comunitare. Astfel, putem obține multe comunități micuțe, cu o modularitate internă ridicată, dar a căror membri sunt strâns legați
+și de alte comunități. Practic, algoritmul ar descompune o comunitate mai mare, cu un coeficient $phi$ scăzut, în multe sub-comunități de dimensiuni
+reduse, dar cu un coeficient $phi$ mai bun. Cazul cel mai rău ar fi cel în care fiecare nod alcătuiește de unul singur o comunitate, care
+evident are $phi$ = 1. O posibilă soluție este să includem în calcul  numărul muchiilor extra-comunitare, care cu cât este
+mai mic, cu atât rezultatele sunt mai relevante și oferă o imagine corectă a realității. Aceasta ar putea fi exprimată procentual, privind raportul
+dintre numărul muchiilor intra-comunitare și numărul total al muchiilor din graf.
 \end{document}
