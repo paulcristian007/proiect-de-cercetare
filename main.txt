@@ -17,39 +17,39 @@
 
 \newpage
 \section {Definirea conceptului de comunitate}
-    Deoarece conceptul de comunitate este unul destul de greu de definit, putând lua multiple interpretări valide, vom încerca să plecăm de la un exemplu
-    intuitiv și practic, urmând ca apoi să oferim și o definiție matematică riguroasă.
-    Din punct de vedere lingvistic, prin comunitate înțelegem un grup de oameni cu interese, aspirații, dorințe, trăsături comune, asemănătoare. Mergând un pas
-    mai departe, putem face o analogie între conceptul de prietenie, asociere, parteneriat din cadrul unei comunități și conceptul de muchie bidirecțională între
-    două noduri din teoria grafurilor. Următoarea problemă care se ridică, privind la ceea ce se întămplă în realitate. În viața de zi cu zi, fiecare face parte din
-    mai multe anturaje, grupuri, comunități - în familia restrânsă, în familia lărgită, la școală sau la locul de muncă, cu prietenii, la practicarea unui hobby comun etc.
-    Cu toate acestea, daca ar fi sa ne gandim cu care comunitate ne identificăm cel mai mult, probabil ar fi cea cu care avem cea mai strânsă legătură.  Matematic,
-    această legătură poate fi reprezentată de un număr cât mai ridicat de muchii ale unui nod cu alte noduri din comunitatea de care aparține, și un număr cât mai scăzut de muchii cu noduri din alte comunități. Cazul ideal este când individul nu are legături ex-comunitare, și este strâns legat de comunitatea lui. Adică, avem de a face
-    cu o pădure de grafuri complete.\\
-    DEFINITIE 1. O comunitate este un graf(sau subgraf) complet (fig1)\\
-        G = (V, E), $V = \bigcup_{i=1}^{n}i$, $E = \bigcup_{i=1}^{n}\bigcup_{j=1,\\ i\neq j}^{n} (i,j)$\\DEFINITIE 2. Un graf poate fi delimitat în comunități dacă este o pădure de grafuri complete.(fig2)\\
+    Deși problema detectării comunităților este una intens studiată, având aplicații în numeroase domenii(biologie, matematică, rețele de socializare, psihologie, etc), nu are o formulare clară și concisă. Majoritatea abordărilor definesc conceptul de comunitate pe baza rezultatelor obținute în urma aplicării algoritmului de detecție.[14]. Astfel, nu putem știi neapărat dacă rezultatul obținut este unul corect, sau măcar relevant.
+    În această lucrare, ne propunem să oferim o soluție care mai întâi definește în mod clar problema detectării comunităților și ce reprezintă o comunitate. Pe baza  Deoarece conceptul de comunitate este unul destul de greu de definit, putând lua multiple interpretări valide, vom încerca să plecăm de la un exemplu intuitiv și practic, urmând ca apoi să oferim și o definiție matematică riguroasă.
+    Din punct de vedere lingvistic, prin comunitate înțelegem un grup de oameni cu interese, aspirații, dorințe, trăsături comune, asemănătoare. Adică ceva sau cineva leagă, unește acești oameni.
+    Evident, nu orice comunitate se bucură de aceleași legături. Unii membri sunt foarte implicați, poate își asumă chiar rolul de lideri, fiind foarte influenți, în schimb ce alții se mulțumesc cu statutul de simplu figurant. Putem privi problema atât din perspectiva membrului, cât și din cea a individului. Aceste perspective pot fi relativ identice, dar și destul de diferite, după cum putem deduce din exemplele următoare. Un membru se poate simți neintegrat și neîmplinit, în ciuda bunului mers al comunității(de exemplu, elevul retras la școală). Vice versa, un membru poate fi în relații bune cu comunitatea din care face parte,în ciuda disputelor interne(de exemplu, într-o familie numeroasă, în care pot apărea conflicte ușor, copiii sunt feriți, protejați și iubiți necondiționat de aproape toate rudele). \newpage
+    \section{Pespectiva comunității}
+    Principiul de funcționare al unei comunități este relația, legătura dintre membri. Această legătură poate fi de diferite tipuri: de prietenie,
+    de colegialitate, de asociere, de colaborare, etnică, socială, religioasă, etc. Existența unei relații între indivizii unei comunități este modelată matematic de conceptul muchiei bidirecționale între două noduri dintr-un graf. Următoarea problemă care se pune este cum măsurăm,
+    cum exprimăm din punct de vedere matematic cât de bine funcționează o comunitate. Din punct de vedere social, exprimat în termeni plastici, cazul ideal se obține atunci când "toată lumea se înțelege bine cu toată lumea", adică există relații de prietenie între toți membrii comunității. Privind înapoi la grafuri, acest lucru ar însemna că există o muchie bidirecțională între oricare două vârfuri. Adică avem de a face cu un graf complet.\\
+    DEFINIȚIE 1. O comunitate este un graf(sau subgraf) complet (fig1)\\
+        G = (V, E), $V = \bigcup_{i=1}^{n}i$, $E = \bigcup_{i=1}^{n}\bigcup_{j=1,\\ i\neq j}^{n} (i,j)$\\
+    În majoritatea cazurilor însă, vor exista mai multe comunități. Putem extinde definiția anterioară pentru un caz mai general \\
+    DEFINIȚIE 2. Un graf poate fi partiționat în comunități dacă este o pădure de grafuri complete.(fig2)\\
 \begin{figure}[h]
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.6\linewidth]{graph (1).png}
-  \captionof{figure}{Pădure de grafuri complete}
+  \includegraphics[width=.6\linewidth]{graph (2).png}
+  \captionof*{figure}{Graf complet(comunitate)}
   \label{fig:test1}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.6\linewidth]{graph (2).png}
-  \captionof{figure}{Graf complet(comunitate)}
+  \includegraphics[width=.6\linewidth]{graph (1).png}
+  \captionof*{figure}{Pădure de grafuri complete}
   \label{fig:test2}
 \end{minipage}
-\end{figure}
-
-\newpage
-\section{Modularitate}
+\end{figure}  \\
 Evident, definițiile prezentate anterior sunt foarte rigide și aproape imposibil de implementat în practică. Însă modelul matematic în caz ideal și analogia cu lumea reală constituie o bază solidă pentru a ataca
-problema modularității și identificarea unor formule de calcul cât mai relevante. La fel, vom face legături practice și intuitive care să poată conduce ulterior la un model matematic riguros. Având în vedere că situația ideală, de maximă legătură în cadrul unei comunități, este irelevantă, putem căuta un coeficient matematic care să ne indice cât de aproape, sau de departe este comunitatea noastră de acest obiectiv propus. Pentru aceasta,
+problema modularității și identificarea unor formule de calcul cât mai relevante. La fel, vom face legături practice și intuitive care să poată conduce ulterior la un model matematic riguros. Având în vedere că situația ideală, de maximă legătură în cadrul unei comunități, este irelevantă, putem căuta un coeficient numeric care să ne indice cât de aproape, sau de departe este comunitatea noastră de acest obiectiv propus. Pentru aceasta,
 putem calcula ușor un procent de "umplere" a grafului, care se exprimă ușor astfel
 $\phi=\frac{|E|}{|V| \cdot (|V| + 1) / 2}$ Evident, pentru un graf complet, $\phi=1$, iar pentru un graf fără muchii, $\phi=0$. Având în minte acest lucru, putem extinde problema și pentru cazul când vrem să măsurăm împărțirea unui graf în 2 sau mai multe comunități.
+
+\newpage
 Considerăm următiarea partiție a grafului $G=(V,E)$: \\
     $G=\bigcup_{i=1}^{k}G_i=\bigcup_{i=1}^{k}(V_i,E_i)$\\
     Să explicăm aceste notații:\\
@@ -74,17 +74,11 @@ O posibilă soluție este să includem în calcul  numărul muchiilor extra-comu
 mai mic, cu atât rezultatele sunt mai relevante și oferă o imagine corectă a realității. Aceasta ar putea fi exprimată procentual, privind raportul
 dintre numărul muchiilor intra-comunitare și numărul total al muchiilor din graf. Putem exprima coeficientul $\phi$ pentru întregul graf astfel:\\
     $\phi_G=\frac{\sum_{i=1}^k G_i}{k} \cdot \frac{|\bigcup_{i=1}^{k}E_i|}{|E|}$
+\newpage
 
-\section{O alta abordare}
+\section{Perspectiva membrului}
 Până acum am încercat să exprimăm și să măsurăm partiția unui graf în comunități privind exclusiv la optimalitatea fiecărei comunități în parte.
-În cele ce urmează, vom acorda o atenție sporită nodurilor, fără a ne interesa neapărat comunitatea din care fac parte ca ansamblu.
-În general, atunci când privim la un individ al unei comunități din societate, putem descrie cât de bine este integrat în comunitatea respectivă
-judecând după numărul de asocieri cu ceilalți membri. De exemplu, intr-o clasă, putem observa cu câți dintre colegii săi este prieten, sau în
-relații bune un elev. Problema pe care trebuie să o prevenim la fel ca în cazul anterior, este de a nu izola nodul de restul comuniăților. Trebuie
-să privim și la cât de relevante sunt aceste relații din comunitatea proprie. De exemplu, într-un anturaj restrâns, o persoană poate fi prieten
-cu toți membrii acelui subgrup, dar să aibă mult mai multe relații de prietenie cu persoane din alte grupuri, acest lucru indicând că deși este
-foarte bine integrat în comunitatea inițială, nu este neapărat cea mai relevantă pentru el. Pe baza acestor observații, putem defini pentru fiecare
-nod următorul coeficient: \\
+În cele ce urmează, vom acorda o atenție sporită indivizilor, fără a ne interesa neapărat comunitatea din care fac parte ca ansamblu. Privind la ceea ce se întămplă în realitate, putem observa că se ridică următoarea problemă. În viața de zi cu zi, fiecare face parte din mai multe anturaje, grupuri, comunități - în familia restrânsă, în familia lărgită, la școală sau la locul de muncă, cu prietenii, la practicarea unui hobby comun etc.Cu toate acestea, nu ne simțim la fel de atașați de toate comunitățile din care facem parte, și nu toate comunitățile au aceeași relevanță, influență. Dacă ar fi să ne gandim cu care comunitate ne identificăm cel mai mult, probabil ar fi cea cu care avem cea mai strânsă legătură. putem descrie cât de bine este integrat în comunitatea respectivă judecând după numărul de asocieri cu ceilalți membri. De exemplu, intr-o clasă, putem observa cu câți dintre colegisăi este prieten un elev. Problema pe care trebuie să o prevenim la fel ca în cazul anterior, este de a nu izola nodul de restul comuniăților. Trebuiesă privim și la cât de relevante sunt aceste relații din comunitatea proprie. De exemplu, într-un anturaj restrâns, o persoană poate fi prieten cu toți membrii acelui subgrup, dar să aibă mult mai multe relații de prietenie cu persoane din alte grupuri, acest lucru indicând că deși estefoarte bine integrat în comunitatea inițială, nu este neapărat cea mai relevantă pentru el. Matematic, putem exprima ideea printr-un număr cât mai ridicat de muchii ale unui nod cu alte noduri din comunitatea de care aparține, și un număr cât mai scăzut de muchii cu noduri din alte comunități. Cazul ideal este când individul nu are legături ex-comunitare, și este strâns legat de comunitatea lui.\\
     $\lambda_i=\frac{card\{(x, y) \mid i \in V_p, (x, y) \in E_p\}}{|V_p|}-\frac{card\{(x, y) \mid i \notin V_p, (x, y) \in E_p\}}{card\{(i, j)
     \mid (i,j) \in E)\}}$
     Să explicăm această formulă:\\
@@ -100,14 +94,40 @@ nod următorul coeficient: \\
     $\lambda_G=\frac{\sum_{i=1}^{|V|}\lambda_i}{|V|}$
 
 \newpage
-\section{Testarea coeficienților}
+\section{Implementare}
     Unul dintre cele mai populari algoritmi de detectare a comunităților într-un graf este algoritmul Girvan-Newman[4], bazat pe conceptul de modularitate. Algoritmul este unul de tip greedy, căutând la fiecare pas să maximizeze creșterea modularității, având drept condiție de oprire atingerea unui parametru pentru numărul de comunități dorit, sau că nu se mai pot face îmbunătățiri la valoarea modularității. La început, fiecare nod este o comunitate de sine stătătoare, urmând să unim
-    comunitățile care vor genera cea mai mare creștere a modularității. Acest algoritm are destule limitări, rezultatele obținute fiind neconcludente(anumite join-uri
-    de comunități pot fi foarte bune pe moment, dar ar putea conduce la niște valori de maxim local, algoritmul urmând să se plafoneze rapid). Această problemă ar
-    putea fi tratată prin aplicarea unor operații de undo asupra unor operații de join, pentru a scăpa din capcana maximului local). Un algoritm de backtracking ar rezolva
-    această problemă, însă este foarte limitat pe date reale de dimensiuni ridicate. Astfel, soluția agreată pentru a trata atât problema eficienței ca timp de execuție,
-    cât și a maximului local, este alegerea unui algoritm evolutiv de tip nedeterminist. Ca funcție de fitness, vom folosi parametrii $\phi$, respectiv $\lambda$.
-    Deoarece parametrii obținuți nu ne spun foarte multe lucruri, vom măsura modularitatea soluției obținute, și o vom compara cu soluția care folosește ca funcție
-    de fitness modularitatea.
+    comunitățile care vor genera cea mai mare creștere a modularității. Diferența în implementarea noastră ar fi că în loc de modularitate, vom căuta să maximizăm coeficienții $\phi_G$, respectiv $\lambda_G$. Acest algoritm are destule limitări, rezultatele obținute fiind neconcludente(anumite join-uri
+    de comunități pot fi foarte bune pe moment, dar ar putea conduce la niște valori de maxim local, algoritmul urmând să se plafoneze rapid). Această problemă ar putea fi tratată prin aplicarea unor operații de undo asupra unor operații de join, pentru a scăpa din capcana maximului local). Un algoritm de backtracking ar rezolva
+    această problemă, însă este foarte limitat pe date reale de dimensiuni mari. Astfel, soluția agreată pentru a trata atât problema eficienței ca timp de execuție,
+    cât și a maximului local, este alegerea unui algoritm evolutiv de tip nedeterminist. Autorii algoritmului oferă și o astfel de variantă  Ca funcție de fitness, vom folosi parametrii $\phi$, respectiv $\lambda$.
+    Deoarece parametrii obținuți nu ne spun multe, vom măsura modularitatea soluției obținute, și o vom compara cu soluția care folosește ca funcție de fitness modularitatea. Problema noastră se împarte în 2 etape
+    1. Pornind de la un graf oarecare, să se determine o partiție a grafului în comunități, care maximizează parametrul $\phi$/$\lambda$.
+    2. Să se calculeze modularitatea pentru partiția obținută la punctul 1. Această valoare se compară cu valoarea
+    obținută la pasul 1 pentru modularitate.
+    \newpage
+
+\section{Testare}
+    Pentru partea de testare, vom folosi în primă fază niște date de dimensiuni reduse, care pot fi ușor vizualizate
+    în mediul de dezvoltare,
+    Apoi, vom testa și pe date de dimensiuni ridicate, folosind input-uri oferite de Newman (krebs, football, dolhpins, karate, lesmiserables). \\
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{1}{|c|}{\textbf{}} & \textbf{$\phi$} & \textbf{$\lambda$} & \textbf{mod} & \textbf{$\phi$ + mod} &
+    \textbf{$\lambda$ + mod}\\
+    \hline
+    \textbf{krebs} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5 \\
+    \textbf{football} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5 \\
+    \textbf{dolphins} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5\\
+    \textbf{karate} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5\\
+    \textbf{lesmiserables} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5 \\
+
+    \hline
+  \end{tabular}
+  \caption*{Rezultate}
+  \label{tab:mytable}
+\end{table}
+ \\
 
 \end{document}
