@@ -44,10 +44,9 @@
   \label{fig:test2}
 \end{minipage}
 \end{figure}  \\
-Evident, definițiile prezentate anterior sunt foarte rigide și aproape imposibil de implementat în practică. Însă modelul matematic în caz ideal și analogia cu lumea reală constituie o bază solidă pentru a ataca
-problema modularității și identificarea unor formule de calcul cât mai relevante. La fel, vom face legături practice și intuitive care să poată conduce ulterior la un model matematic riguros. Având în vedere că situația ideală, de maximă legătură în cadrul unei comunități, este irelevantă, putem căuta un coeficient numeric care să ne indice cât de aproape, sau de departe este comunitatea noastră de acest obiectiv propus. Pentru aceasta,
-putem calcula ușor un procent de "umplere" a grafului, care se exprimă ușor astfel
-$\phi=\frac{|E|}{|V| \cdot (|V| + 1) / 2}$ Evident, pentru un graf complet, $\phi=1$, iar pentru un graf fără muchii, $\phi=0$. Având în minte acest lucru, putem extinde problema și pentru cazul când vrem să măsurăm împărțirea unui graf în 2 sau mai multe comunități.
+Evident, definițiile prezentate anterior sunt foarte rigide și aproape imposibil de implementat în practică. Însă modelul matematic în caz ideal și analogia cu lumea reală constituie o bază solidă pentru atacarea
+problemei și identificarea unor formule de calcul cât mai relevante. La fel, vom face legături practice și intuitive care să poată conduce ulterior la un model matematic riguros. Având în vedere că situația ideală, de maximă legătură în cadrul unei comunități, este irelevantă, putem căuta un coeficient numeric care să ne indice cât de aproape, sau de departe este comunitatea noastră de acest obiectiv propus. Putem calcula ușor un procent de "umplere" a grafului, care se exprimă astfel:
+$\phi=\frac{|E|}{|V| \cdot (|V| + 1) / 2}$.\\ Evident, pentru un graf complet, $\phi=1$, iar pentru un graf fără muchii, $\phi=0$. Putem extinde problema și pentru cazul când vrem să măsurăm împărțirea unui graf în 2 sau mai multe comunități.
 
 \newpage
 Considerăm următiarea partiție a grafului $G=(V,E)$: \\
@@ -64,16 +63,16 @@ Observații:\\
     $\cap_{i=1}^{k}E_i=\emptyset$\\
     $\bigcup_{i=1}^{k}E_i\subseteq E$\\
     $E-\bigcup_{i=1}^{k}E_i=\{(x, y) \mid (x, y) \in E, x \in V_i_1, y \in V_i_2, i_1 \neq i_2\}$ \\
-    O idee trivială pentru a calcula modularitatea întregului graf este de a calcula valoarea lui$\phi$ pentru fiecare comunitate în parte,
+    O idee trivială pentru a calcula coeficientul $\phi$ întregului graf este de a calcula valoarea lui $\phi$ pentru fiecare comunitate în parte,
 și a face media aritmetică a tuturor acestor valori. Această abordare are însă un mare dezavantaj, și anume că nu ia în niciun fel în calcul
 muchiile extra-comunitare. Astfel, putem obține multe comunități micuțe, cu o modularitate internă ridicată, dar a căror membri sunt strâns legați
 și de alte comunități. Practic, algoritmul ar descompune o comunitate mai mare, cu un coeficient $\phi$ scăzut, în multe sub-comunități de dimensiuni
 reduse, dar cu un coeficient $\phi$ mai bun. Cazul cel mai rău ar fi cel în care fiecare nod alcătuiește de unul singur o comunitate, care
 evident are $\phi$ = 1.
-O posibilă soluție este să includem în calcul  numărul muchiilor extra-comunitare, care cu cât este
+O posibilă soluție este să includem în calcul numărul muchiilor extra-comunitare, care cu cât este
 mai mic, cu atât rezultatele sunt mai relevante și oferă o imagine corectă a realității. Aceasta ar putea fi exprimată procentual, privind raportul
 dintre numărul muchiilor intra-comunitare și numărul total al muchiilor din graf. Putem exprima coeficientul $\phi$ pentru întregul graf astfel:\\
-    $\phi_G=\frac{\sum_{i=1}^k G_i}{k} \cdot \frac{|\bigcup_{i=1}^{k}E_i|}{|E|}$
+    $\phi_G=\frac{\sum_{i=1}^k \phi_i}{k} \cdot \frac{|\bigcup_{i=1}^{k}E_i|}{|E|}$
 \newpage
 
 \section{Perspectiva membrului}
@@ -97,15 +96,42 @@ Până acum am încercat să exprimăm și să măsurăm partiția unui graf în
 \section{Implementare}
     Unul dintre cele mai populari algoritmi de detectare a comunităților într-un graf este algoritmul Girvan-Newman[4], bazat pe conceptul de modularitate. Algoritmul este unul de tip greedy, căutând la fiecare pas să maximizeze creșterea modularității, având drept condiție de oprire atingerea unui parametru pentru numărul de comunități dorit, sau că nu se mai pot face îmbunătățiri la valoarea modularității. La început, fiecare nod este o comunitate de sine stătătoare, urmând să unim
     comunitățile care vor genera cea mai mare creștere a modularității. Diferența în implementarea noastră ar fi că în loc de modularitate, vom căuta să maximizăm coeficienții $\phi_G$, respectiv $\lambda_G$. Acest algoritm are destule limitări, rezultatele obținute fiind neconcludente(anumite join-uri
-    de comunități pot fi foarte bune pe moment, dar ar putea conduce la niște valori de maxim local, algoritmul urmând să se plafoneze rapid). Această problemă ar putea fi tratată prin aplicarea unor operații de undo asupra unor operații de join, pentru a scăpa din capcana maximului local). Un algoritm de backtracking ar rezolva
+    de comunități pot fi foarte bune pe moment, dar ar putea conduce la niște valori de maxim local, algoritmul urmând să se plafoneze rapid). Această problemă ar putea fi tratată prin aplicarea unor operații de undo asupra join-urilor anterioare, pentru a scăpa din capcana maximului local). Un algoritm de backtracking ar rezolva
     această problemă, însă este foarte limitat pe date reale de dimensiuni mari. Astfel, soluția agreată pentru a trata atât problema eficienței ca timp de execuție,
-    cât și a maximului local, este alegerea unui algoritm evolutiv de tip nedeterminist. Autorii algoritmului oferă și o astfel de variantă  Ca funcție de fitness, vom folosi parametrii $\phi$, respectiv $\lambda$.
-    Deoarece parametrii obținuți nu ne spun multe, vom măsura modularitatea soluției obținute, și o vom compara cu soluția care folosește ca funcție de fitness modularitatea. Problema noastră se împarte în 2 etape
-    1. Pornind de la un graf oarecare, să se determine o partiție a grafului în comunități, care maximizează parametrul $\phi$/$\lambda$.
-    2. Să se calculeze modularitatea pentru partiția obținută la punctul 1. Această valoare se compară cu valoarea
-    obținută la pasul 1 pentru modularitate.
+    cât și a maximului local, este implementarea unui algoritm evolutiv de tip nedeterminist.[16]. Ca funcție de fitness, vom folosi parametrii $\phi$, respectiv $\lambda$.Deoarece parametrii obținuți nu ne spun multe, vom măsura modularitatea soluției obținute, și o vom compara cu soluția care folosește ca funcție de fitness modularitatea.
+    Se vor efectua următoarele experimente:\\
+    1. Pornind de la un graf oarecare, să se determine o partiție a grafului în comunități, care maximizează modularitatea/$\phi$/$\lambda$.(câte o execuție separată pentru fiecare parametru) \\
+    2. Să se calculeze modularitatea pentru partiția obținută la punctul 1, pe baza lui /$\phi$/$\lambda$. Această valoare se compară cu valoarea obținută la pasul 1 pentru modularitate.
     \newpage
 
+\section{Descrierea algoritmului evolutiv}
+    Algoritmii evolutivi se diferențiază de algoritmii clasici prin faptul că sunt ne-determiniști, adică la multiple
+    execuții ale programului, se vor obține soluții diferite. Am explicat deja în secțiunea anterioară avantajele acestei abordări. În cele ce urmează, vom prezenta particularitățile acestui algoritm evolutiv.\\
+    I. Genotipul\\
+    Articolul citat propune mai multe variante pentru codificarea genetică a unei soluții. Metoda aleasă este locus-based. \\
+    $neighbors=\bigcup_{i=1}^{|V|}j, (i,j) \in E$\\
+    $neighbors_i$ reprezintă un vecin al lui i care se află în aceeași comunitate cu i\\
+    Am ales această reprezentare, luând în calcul următoarele aspecte:\\
+    1. Spațiul de căutare al soluției se reduce de la $|V|^{|V|}$ la $\prod_{i=1}^{|E|} deg_i$ ($deg_i$=gradul nodului i), astfel algoritmul evolutiv converge spre punctul de optim global mai rapid. \\
+    2. Această abordare facilitează detectarea comunităților. Pe baza șirului $neighbors$, putem construi un subgraf
+    al grafului inițial(citit din fișier) \\
+    $G'=(V,E'), E'=\{(i, j) \mid neighbors_i=j \lor neighbors_j=i \}$\\
+    Problema detectării comunităților se transformă într-o simplă problemă de detectare a componentelor conexe ale grafului $G'$.\\
+    II. Prima generație\\
+    Pentru prima generație, vom alege în mod aleator, o valoare pentru $neighbors_i$, dintre nodurile cu care are muchie.\\
+    III. Mutația\\
+    Mutația are rolul de a conferi diversitate în rândul indivizilor. În problema noastră, se alege aleator un nod i al unei soluții, pentru care, tot aleator, alegem un alt vecin j pentru $neighbors_i$. Deși soluția pare banală,
+    se dovedește a fi foarte eficientă. Comunitatea lui i fie va scinda în două comunități mai mici sau se va uni cu alta.\\
+    IV. Încrucișarea\\
+    Se creează aleator o mască binară de lungime $|V|$, pentru a indică părintele de la care se alege alela j. \\
+    \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{crossover.png}
+    \captionof*{figure}{Exemplu de încrucișare}
+    \label{fig:example}
+    \end{figure}
+
+\newpage
 \section{Testare}
     Pentru partea de testare, vom folosi în primă fază niște date de dimensiuni reduse, care pot fi ușor vizualizate
     în mediul de dezvoltare,
@@ -128,6 +154,9 @@ Până acum am încercat să exprimăm și să măsurăm partiția unui graf în
   \caption*{Rezultate}
   \label{tab:mytable}
 \end{table}
- \\
+
+$\phi$, $\lambda$, mod - valorile obținute în urma efectuării primului experiment\\
+$\phi$ + mod, $\lambda$ + mod - valorile obținute în urma efectuării celui de-al doilea experiment\\
+Ultimele 3 coloane sunt cele relevante și pe care le folosim pentru a compara parametrii și a trage concluzii.\\
 
 \end{document}
