@@ -53,9 +53,6 @@ class Graph:
 
     def getCommunities(self, neighbors):
         links = self.makeLinks(neighbors)
-        print(neighbors)
-        print(links)
-        print()
         community = 0
         vis = [False] * self._n
         communities = [-1] * self._n

@@ -8,7 +8,7 @@
 
 
 \title{Proiect de Cercetare}
-\author{Paul Cristian}
+\author{Șichet Paul-Cristian}
 \date{November 2023}
 
 \begin{document}
@@ -143,11 +143,11 @@ Până acum am încercat să exprimăm și să măsurăm partiția unui graf în
     \multicolumn{1}{|c|}{\textbf{}} & \textbf{$\phi$} & \textbf{$\lambda$} & \textbf{mod} & \textbf{$\phi$ + mod} &
     \textbf{$\lambda$ + mod}\\
     \hline
-    \textbf{krebs} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5 \\
-    \textbf{football} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5 \\
-    \textbf{dolphins} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5\\
-    \textbf{karate} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5\\
-    \textbf{lesmiserables} & 0.5 & 0.5 & 0.5 & 0.5 & 0.5 \\
+    \textbf{krebs} & 0.11 & 0.25 & 0.52 & 0.35 & 0.47 \\
+    \textbf{football} & 0.05 & 0.40 & 0.58 & 0.33 & 0.56 \\
+    \textbf{dolphins} & 0.14 & 0.33 & 0.53 & 0.28 & 0.45\\
+    \textbf{karate} & 0.13 & 0.34 & 0.42 & 0.18 & 0.35\\
+    \textbf{lesmiserables} & 0.12 & 0.50 & 0.56 & 0.25 & 0.50 \\
 
     \hline
   \end{tabular}

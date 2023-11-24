@@ -8,14 +8,14 @@ from population import Population
 
 
 def main():
-    repo = Repository('tests/test2.gml')
+    repo = Repository('tests/lesmiserables.gml')
     p = Plot(repo)
     g = Graph(repo.getGraphGML())
     modularity = Modularity(p.getGraph())
     myfunction1 = MyFunction1(p.getGraph())
     myfunction2 = MyFunction2(p.getGraph())
 
-    population = Population(1, 20, modularity, p)
+    population = Population(200, 20, myfunction2, p)
     coms = population.evolutionLoop()
     print(modularity.calc(coms))
 
