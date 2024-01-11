@@ -16,9 +16,14 @@
 \maketitle
 
 \newpage
-\section {Definirea conceptului de comunitate}
+\section {Abstract}
     Deși problema detectării comunităților este una intens studiată, având aplicații în numeroase domenii(biologie, matematică, rețele de socializare, psihologie, etc), nu are o formulare clară și concisă. Majoritatea abordărilor definesc conceptul de comunitate pe baza rezultatelor obținute în urma aplicării algoritmului de detecție.[14]. Astfel, nu putem știi neapărat dacă rezultatul obținut este unul corect, sau măcar relevant.
-    În această lucrare, ne propunem să oferim o soluție care mai întâi definește în mod clar problema detectării comunităților și ce reprezintă o comunitate. Pe baza  Deoarece conceptul de comunitate este unul destul de greu de definit, putând lua multiple interpretări valide, vom încerca să plecăm de la un exemplu intuitiv și practic, urmând ca apoi să oferim și o definiție matematică riguroasă.
+    În această lucrare, ne propunem să oferim o soluție care mai întâi definește în mod clar problema detectării comunităților și ce reprezintă o comunitate. Pe baza acestora, vom construi un model matematic pe care il vom testa
+    mai apoi intr-o aplicatie si vom compara rezultatele obtinute cu alte solutii relevante din domeniu. \\ACM E.E1 Data - Data Structures - Graphs and Networks\\
+    AMS 05-XX  05-Cxx\\
+\newpage
+\section {Definirea conceptului de comunitate}
+    Deoarece conceptul de comunitate este unul destul de greu de definit, putând lua multiple interpretări valide, vom încerca să plecăm de la un exemplu intuitiv și practic, urmând ca apoi să oferim și o definiție matematică riguroasă. \\
     Din punct de vedere lingvistic, prin comunitate înțelegem un grup de oameni cu interese, aspirații, dorințe, trăsături comune, asemănătoare. Adică ceva sau cineva leagă, unește acești oameni.
     Evident, nu orice comunitate se bucură de aceleași legături. Unii membri sunt foarte implicați, poate își asumă chiar rolul de lideri, fiind foarte influenți, în schimb ce alții se mulțumesc cu statutul de simplu figurant. Putem privi problema atât din perspectiva membrului, cât și din cea a individului. Aceste perspective pot fi relativ identice, dar și destul de diferite, după cum putem deduce din exemplele următoare. Un membru se poate simți neintegrat și neîmplinit, în ciuda bunului mers al comunității(de exemplu, elevul retras la școală). Vice versa, un membru poate fi în relații bune cu comunitatea din care face parte,în ciuda disputelor interne(de exemplu, într-o familie numeroasă, în care pot apărea conflicte ușor, copiii sunt feriți, protejați și iubiți necondiționat de aproape toate rudele). \newpage
     \section{Pespectiva comunității}
@@ -158,5 +163,23 @@ Până acum am încercat să exprimăm și să măsurăm partiția unui graf în
 $\phi$, $\lambda$, mod - valorile obținute în urma efectuării primului experiment\\
 $\phi$ + mod, $\lambda$ + mod - valorile obținute în urma efectuării celui de-al doilea experiment\\
 Ultimele 3 coloane sunt cele relevante și pe care le folosim pentru a compara parametrii și a trage concluzii.\\
+
+\newpage
+\section{Bibliografie}
+1. Goldenberg, D. (2021). Social network analysis: From graph theory to applications with python.arXiv preprint arXiv:2102.10014.\\[2]CAMPBELL, William M.; DAGLI, Charlie K.; WEINSTEIN, Clifford J. Social network analysis with content and graphs.Lincoln Laboratory Journal, 2013, 20.1: 61-81. \\
+2. Leung, I. X., Hui, P., Lio, P., & Crowcroft, J. (2009). Towards real-time community detection in large networks. Physical Review E, 79(6), 066107. \\
+3. Gulbahce, N., & Lehmann, S. (2008). The art of community detection. BioEssays, 30(10), 934-938. \\
+4. NEWMAN, Mark EJ. Fast algorithm for detecting community structure in networks. Physical review E, 2004, 69.6: 066133. \\
+5. Santo Fortunato, Darko Hric,Community detection in networks: A user guide,Physics Reports, Volume 659,2016, Pages 1-44,ISSN 0370-1573\\
+6. J. Yang, J. McAuley and J. Leskovec, "Community Detection in Networks with Node Attributes," 2013 IEEE 13th International Conference on Data Mining, Dallas, TX, USA, 2013, pp. 1151-1156, doi: 10.1109/ICDM.2013.167.\\
+7. XIE, Jierui; KELLEY, Stephen; SZYMANSKI, Boleslaw K. Overlapping community detection in networks: The state-of-the-art and comparative study.Acm computing surveys (csur), 2013, 45.4: 1-35.\\
+8. Lancichinetti, A., Fortunato, S., & Radicchi, F. (2008). Benchmark graphs for testing community detection algorithms. Physical review E,78(4), 046110.\\
+9. JIN, Di, et al. A survey of community detection approaches: From statistical modeling to deep learning. IEEE Transactions on Knowledge and Data Engineering, 2021, 35.2: 1149-1170.\\
+10. RUAN, Yiye; FUHRY, David; PARTHASARATHY, Srinivasan. Efficient community detection in large networks using content and links. In:Proceedings of the 22nd international conference on World Wide Web. 2013. p. 1089-1098.\\
+11. Traag, V. A., & Bruggeman, J. (2009). Community detection in networks with positive and negative links. Physical Review E,80(3), 036115. \\
+12. Orman, G. K., Labatut, V., & Cherifi, H. (2012). Comparative evaluation of community detection algorithms: a topological approach.Journal of Statistical Mechanics: Theory and Experiment, 2012(08), P08001.\\
+13. Hastings, M. B. (2006). Community detection as an inference problem. Physical Review E, 74(3), 035102.\\
+14. Peel, L., Larremore, D. B., & Clauset, A. (2017). The ground truth about metadata and community detection in networks.Science advances,3(5), e1602548.\\
+15. PIZZUTI, Clara. Evolutionary computation for community detection in networks: A review IEEE Transactions on Evolutionary Computation, 2017, 22.3: 464-483. \\
 
 \end{document}
