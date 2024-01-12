@@ -7,9 +7,9 @@
 \usepackage{subcaption}
 
 
-\title{Proiect de Cercetare}
+\title{O nouă abordare asupra problemei comunităților}
 \author{Șichet Paul-Cristian}
-\date{November 2023}
+\date{2024}
 
 \begin{document}
 \newpage
@@ -17,9 +17,12 @@
 
 \newpage
 \section {Abstract}
-    Deși problema detectării comunităților este una intens studiată, având aplicații în numeroase domenii(biologie, matematică, rețele de socializare, psihologie, etc), nu are o formulare clară și concisă. Majoritatea abordărilor definesc conceptul de comunitate pe baza rezultatelor obținute în urma aplicării algoritmului de detecție.[14]. Astfel, nu putem știi neapărat dacă rezultatul obținut este unul corect, sau măcar relevant.
+    Deși problema detectării comunităților este una intens studiată, având aplicații în numeroase domenii(biologie, matematică, rețele de socializare, psihologie, etc), nu are o formulare clară și concisă. Majoritatea abordărilor definesc conceptul de comunitate pe baza rezultatelor obținute în urma aplicării algoritmului de detecție. Astfel, nu putem știi neapărat dacă rezultatul obținut este unul corect, sau măcar relevant.
     În această lucrare, ne propunem să oferim o soluție care mai întâi definește în mod clar problema detectării comunităților și ce reprezintă o comunitate. Pe baza acestora, vom construi un model matematic pe care il vom testa
-    mai apoi intr-o aplicatie si vom compara rezultatele obtinute cu alte solutii relevante din domeniu. \\ACM E.E1 Data - Data Structures - Graphs and Networks\\
+    mai apoi intr-o aplicatie si vom compara rezultatele obtinute cu alte solutii relevante din domeniu. \\
+\newpage
+\section{Incadrarea lucrării}
+    ACM E.E1 Data - Data Structures - Graphs and Networks\\
     AMS 05-XX  05-Cxx\\
 \newpage
 \section {Definirea conceptului de comunitate}
